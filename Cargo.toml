@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "gfx942",
+    "gfx942_host",
+]
