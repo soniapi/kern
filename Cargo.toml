@@ -1,5 +1,8 @@
 [workspace]
-members = [
+exclude = [ 
     "gfx942",
     "gfx942_host",
+]
+members = [ 
+    "des",
 ]
