@@ -6,8 +6,12 @@ edition = "2024"
 [lib]
 crate-type = ["cdylib"]
 
+[dependencies]
+
 [profile.dev]
-lto = true
+panic = "abort"
+lto = true 
 
 [profile.release]
+panic = "abort"
 lto = true
