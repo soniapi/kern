@@ -1,4 +1,6 @@
 use rocm_rs::{RocmDriver, Device, Kernel, Memory};
+use rocm_rs::hip::*;
+use std::path::Path;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let driver = RocmDriver::new()?;
@@ -7,8 +9,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let kernel = Kernel::load(&device, kernel_path, "add_vector_float")?;
 
     let n = 1024;
-    let a: Vec<f32> = vec![2, n];
-    let b: Vec<f32> = vec![9, n];
+    let a: Vec<f32> = vec![2.0, n as f32];
+    let b: Vec<f32> = vec![9.0, n as f32];
     let mut c = vec![0.0f32; n];
 
     let a_gpu_mem = Memory::from_slice(&device, &a)?;
